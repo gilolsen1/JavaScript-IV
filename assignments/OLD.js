@@ -15,13 +15,14 @@ function GameObject(attrs) {
   }
 
   function CharacterStats (attrs) {
-    GameObject.call(this, attrs);  
+    GameObject.call(this, attrs);     //extends does this for classes
     this.healthPoints= attrs.healthPoints;
     this.name = attrs.name;
   }
   
   CharacterStats.prototype = Object.create(GameObject.prototype);    
- 
+ //super() does this for classes
+
   CharacterStats.prototype.takeDamage=function () {  
     return `${this.name} took damage.`
   }

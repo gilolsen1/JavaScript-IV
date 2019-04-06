@@ -9,11 +9,34 @@ The console.log() statements should still return what is expected of them.
 function GameObject(attrs) {
     this.createdAt = attrs.createdAt;               
     this.dimensions = attrs.dimensions;          
-  }                                              
+  }  
+                                              
   GameObject.prototype.destroy=function() {            
      return `${this.name} was removed from the game.`   
   }
 
+  /////GAME OBJECTS REFACTOR ATTEMPT
+
+class GameObject {
+    constructor(attrs) {
+        this.createdAt=attrs.createdAt;
+        this.dimensions = attrs.dimensions;
+    }
+destroy() {
+    return `${this.name} was removed from the refactored game.`
+}
+}
+
+
+
+
+
+
+
+
+
+
+  ///////
   function CharacterStats (attrs) {
     GameObject.call(this, attrs);  
     this.healthPoints= attrs.healthPoints;
