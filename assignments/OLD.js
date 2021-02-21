@@ -9,42 +9,20 @@ The console.log() statements should still return what is expected of them.
 function GameObject(attrs) {
     this.createdAt = attrs.createdAt;               
     this.dimensions = attrs.dimensions;          
-  }  
-                                              
+  }                                              
   GameObject.prototype.destroy=function() {            
      return `${this.name} was removed from the game.`   
   }
 
-  /////GAME OBJECTS REFACTOR ATTEMPT
-
-class GameObject {
-    constructor(attrs) {
-        this.createdAt=attrs.createdAt;
-        this.dimensions = attrs.dimensions;
-    }
-destroy() {
-    return `${this.name} was removed from the refactored game.`
-}
-}
-
-
-
-
-
-
-
-
-
-
-  ///////
   function CharacterStats (attrs) {
-    GameObject.call(this, attrs);  
+    GameObject.call(this, attrs);     //extends does this for classes
     this.healthPoints= attrs.healthPoints;
     this.name = attrs.name;
   }
   
   CharacterStats.prototype = Object.create(GameObject.prototype);    
- 
+ //super() does this for classes
+
   CharacterStats.prototype.takeDamage=function () {  
     return `${this.name} took damage.`
   }
